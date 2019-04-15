@@ -1,0 +1,24 @@
+<form #vuedenezForm="ngForm" class="editForm" novalidate>
+  <div class="tab-pane fade in active">
+    <h4 class="head text-center">{{title}}</h4>
+    <br/>
+    <div class='row'>
+      <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8'>
+            <div class="form-group text-center">
+              <label class="control-label" for="aVueDeNezId">Estimation à Vue de Nez (J/H)</label>
+              <input class="form-control input-md" #aVueDeNezId="ngModel" required name="aVueDeNezId" type="text"
+                     placeholder="Estimation Vue de Nez" [(ngModel)]="aVueDeNez">
+              <div class="alert alert-danger" [hidden]="aVueDeNezId.valid">L'estimation est nécessaire</div>
+            </div>
+
+
+        <div class="form-group text-center">
+          <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!vuedenezForm.valid"
+                  (click)="goToNext(vuedenezForm)" type="button"> Suivant <span style="margin-left:10px;"
+                                                                  class="glyphicon glyphicon-arrow-right"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
