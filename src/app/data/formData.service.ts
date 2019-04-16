@@ -11,6 +11,76 @@ export class FormDataService {
   private isTailleSpecFormValid = false;
   private isUrgenceFormValid = false;
 
+  private finalEstimation = 0;
+
+  public computeEstimation() {
+
+    let estimation = this.getEstimationVueDeNez();
+
+    console.log('Spec ' + this.getTailleSpec());
+    console.log('Urgence ' + this.getUrgence());
+    console.log('NbEquipe ' + this.getNbEquipes());
+
+    estimation = this.computeNbEquipe(this.getNbEquipes(), estimation);
+    estimation = this.computeUrgence(this.getUrgence(), estimation);
+    this.finalEstimation = this.computeSpecification(this.getTailleSpec(), estimation);
+  }
+
+  private computeNbEquipe(nbEquipes: string, estimation: number) {
+    switch (nbEquipes) {
+      case '0':
+        return estimation * 1.2;
+        break;
+      case '1':
+        return estimation * 1.3
+        break;
+      case '2':
+        return estimation * 1.5;
+        break;
+      default:
+        return estimation;
+        break;
+    }
+  }
+
+  private computeUrgence(urgence: string, estimation: number) {
+    switch (urgence) {
+      case '0':
+        return estimation * 1.5;
+        break;
+      case '1':
+        return estimation * 1.4
+        break;
+      case '2':
+        return estimation * 1.3;
+        break;
+      default:
+        return estimation;
+        break;
+    }
+  }
+
+  private computeSpecification(specification: string, estimation: number) {
+    switch (specification) {
+      case '0':
+        return estimation * 1.5;
+        break;
+      case '1':
+        return estimation * 1.2
+        break;
+      case '2':
+        return estimation * 1.3;
+        break;
+      default:
+        return estimation;
+        break;
+    }
+  }
+
+  getFinalEstimation(): number {
+    return this.finalEstimation;
+  }
+
   getEstimationVueDeNez(): number {
     return this.formData.estimationVueDeNez
   }
@@ -20,29 +90,29 @@ export class FormDataService {
     this.formData.estimationVueDeNez = data;
   }
 
-  getNbEquipes(): number {
+  getNbEquipes(): string {
     return this.formData.nbEquipes;
   }
 
-  setNbEquipes(data: number) {
+  setNbEquipes(data: string) {
     this.isNbEquipeFormValid = true;
     this.formData.nbEquipes = data;
   }
 
-  getUrgence(): number {
+  getUrgence(): string {
     return this.formData.urgence;
   }
 
-  setUrgence(data: number) {
+  setUrgence(data: string) {
     this.isUrgenceFormValid = true;
     this.formData.urgence = data;
   }
 
-  getTailleSpec(): number {
+  getTailleSpec(): string {
     return this.formData.tailleSpec;
   }
 
-  setTailleSpec(data: number) {
+  setTailleSpec(data: string) {
     this.isTailleSpecFormValid = true;
     this.formData.tailleSpec = data;
   }
