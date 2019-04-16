@@ -10,6 +10,8 @@ import {UrgenceComponent} from './urgence/urgence.component';
 import {ResultComponent} from './result/result.component';
 import {SpecificationComponent} from './specification/specification.component';
 
+import {ModalModule} from 'ngx-bootstrap/modal';
+
 
 /* Routing Module */
 import {AppRoutingModule} from './app-routing.module';
@@ -28,9 +30,10 @@ import {FormDataService} from './data/formData.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ModalModule.forRoot()
   ],
-  providers: [{ provide: FormDataService, useClass: FormDataService }],
+  providers: [{provide: FormDataService, useClass: FormDataService}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

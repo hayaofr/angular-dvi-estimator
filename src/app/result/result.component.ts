@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormDataService} from '../data/formData.service';
 
 @Component({
   selector: 'app-result',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  constructor() { }
+  title = 'Résultat de l\'estimation';
+  finalEstimation = 0;
+
+  constructor(private formDataService: FormDataService) {
+  }
 
   ngOnInit() {
+    this.finalEstimation = this.formDataService.getFinalEstimation();
   }
 
 }

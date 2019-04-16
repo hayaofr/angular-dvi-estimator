@@ -9,7 +9,7 @@ import {FormDataService} from '../data/formData.service';
 })
 export class NbequipesComponent implements OnInit {
   title = 'Nombre d\'équipes contributrices';
-  nbEquipes = 0;
+  nbEquipes = '0';
 
 
   constructor(private router: Router, private formDataService: FormDataService) {

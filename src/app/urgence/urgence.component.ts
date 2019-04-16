@@ -9,7 +9,7 @@ import {FormDataService} from '../data/formData.service';
 })
 export class UrgenceComponent implements OnInit {
   title = 'Degré d\'urgence du projet';
-  urgence = 0;
+  urgence = '0';
 
   constructor(private router: Router, private formDataService: FormDataService) {
   }
