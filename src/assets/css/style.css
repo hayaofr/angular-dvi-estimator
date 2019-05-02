@@ -1,3 +1,8 @@
+.modal {
+  display: flex !important;
+  align-items: center;
+}
+
 .btn-default {
     border-color: #ccc;
 }

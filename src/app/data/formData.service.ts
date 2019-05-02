@@ -30,16 +30,12 @@ export class FormDataService {
     switch (nbEquipes) {
       case '0':
         return estimation * 1.2;
-        break;
       case '1':
         return estimation * 1.3
-        break;
       case '2':
         return estimation * 1.5;
-        break;
       default:
         return estimation;
-        break;
     }
   }
 
@@ -47,16 +43,12 @@ export class FormDataService {
     switch (urgence) {
       case '0':
         return estimation * 1.5;
-        break;
       case '1':
         return estimation * 1.4
-        break;
       case '2':
         return estimation * 1.3;
-        break;
       default:
         return estimation;
-        break;
     }
   }
 
@@ -64,16 +56,12 @@ export class FormDataService {
     switch (specification) {
       case '0':
         return estimation * 1.5;
-        break;
       case '1':
         return estimation * 1.2
-        break;
       case '2':
         return estimation * 1.3;
-        break;
       default:
         return estimation;
-        break;
     }
   }
 
